@@ -1,0 +1,21 @@
+.main {
+    max-width: 100%;
+    padding: 0 10px;
+    margin: 20px 0;
+}
+
+.flexRow {
+    display: flex;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 480px) {
+    .flexRow {
+        flex-direction: column;
+    }
+}
+.flexColumn {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}

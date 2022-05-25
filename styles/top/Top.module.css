@@ -1,0 +1,30 @@
+.imgBox {
+    padding: 10px;
+}
+.img {
+    width: 90%;
+    border: solid 2px grey;
+}
+.link {
+    color: blue;
+}
+.link:hover {
+    cursor: pointer;
+}
+.link_p {
+    margin: 0;
+    font-size: 13px;
+}
+.h2 {
+    display: block;
+    font-size: 30px;
+    color: limegreen;
+    font-weight: bolder;
+}
+
+.selectCards {
+    margin: 20px 0;
+}
+.hintCard {
+    margin-top: 20px;
+}

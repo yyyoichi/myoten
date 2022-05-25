@@ -1,0 +1,24 @@
+.wrapper {
+    display: inline-block;
+    padding: 20px;
+    min-width: 100px;
+    min-height: 50px;
+    border-radius: 10px;
+    background-color:chartreuse;
+    color: white;
+    margin: 0 20px;
+}
+.wrapper:hover {
+    cursor: pointer;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 40px;
+    text-align: center;
+}
+.sub {
+    font-size: 15px;
+    text-align: right;
+    color: white;
+}

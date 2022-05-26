@@ -1,20 +1,21 @@
 .wrapper {
-    display: inline-block;
-    padding: 20px;
+    padding: 5px 20px;
     min-width: 100px;
     min-height: 50px;
+    margin: 8px 10px;
     border-radius: 10px;
-    background-color:chartreuse;
-    color: white;
-    margin: 0 20px;
+    border: solid 1px gray;
+    color: black;
 }
 .wrapper:hover {
     cursor: pointer;
+    background-color:chartreuse;
+    color: aliceblue;
 }
 
 .title {
     font-weight: bold;
-    font-size: 40px;
+    font-size: 20px;
     text-align: center;
 }
 .sub {

@@ -1,6 +1,4 @@
-import { useContext, useState } from "react";
-import { WeekWeatherContext } from "../pages/_app";
-import Image from "next/image"
+import { useState } from "react";
 import Main from "../component/frame/Main";
 import Hint from "./sub/Hint";
 import FlexRow from "../component/atom/FlexRow";
@@ -9,16 +7,14 @@ import FlexSpace from "../component/atom/FlexSpace";
 import FlexRatio from "../component/atom/FlexRatio";
 
 import styles from "../styles/top/Top.module.css";
-import SuccessCard from "./sub/SuccessCard";
 import ChoisCard from "./sub/ChoisCard";
 import DayWeather from "../weather/DayWeather";
+import useWeather from "../weather/jam/useWeather";
 type Props = {
     imgSrc: string
 }
 export default function Top({ imgSrc }: Props) {
-    const [after, setAfter] = useState(1);
-    const wth = useContext(WeekWeatherContext);
-    const dayWeather = wth.getDay(after)
+    const {weather: dayWeather} = useWeather();
     const weatherOpt = DayWeather.aboutJPWeatherList
     return (
         <Main>

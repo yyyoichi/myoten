@@ -1,17 +1,16 @@
-import { useContext } from 'react'
 import FadeIn from '../component/anime/FadeIn';
 import Top from '../main/Top';
-import { WeekWeatherContext } from './_app';
 import { getWeathreMap } from '../logic/weatherMap';
 import Wrapper from '../component/frame/Wrapper';
 import Head from 'next/head';
+import useWeather from '../weather/jam/useWeather';
 
 
 type Props = {
   imgSrc: string
 }
 export default function Home({ imgSrc }: Props) {
-  const wth = useContext(WeekWeatherContext);
+  const { weather } = useWeather()
   return (
     <>
       <Head>
@@ -20,7 +19,7 @@ export default function Home({ imgSrc }: Props) {
         <link href="https://fonts.googleapis.com/css2?family=Train+One&display=swap" rel="stylesheet" />
       </Head>
       <Wrapper>
-        <FadeIn toggle={wth.hasData()} display={true}>
+        <FadeIn toggle={weather.isEmply()} display={true}>
           <Top imgSrc={imgSrc} />
         </FadeIn>
       </Wrapper>

@@ -1,14 +1,11 @@
 import { AppProps } from 'next/app';
-import { createContext, useEffect, useState } from 'react';
 import '../styles/globals.css'
-import initWeather from '../weather/jam/initWeather';
+import useWeather from '../weather/jam/useWeather';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const { wth, WeatherContext }= initWeather();
+  useWeather();
   return (
-    <WeatherContext.Provider value={wth}>
-      <Component {...pageProps} />
-    </WeatherContext.Provider>
+    <Component {...pageProps} />
   )
 }
 

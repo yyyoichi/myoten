@@ -8,9 +8,9 @@ type Props = {
 }
 export default function SuccessCard({ isSuccess, selectWeather }: Props) {
     const text = isSuccess ? "正解" : "残念"
-    const color = isSuccess ? "blue" : "red"
+    const color = isSuccess ? /*"blue"*/"#2525d7" : /*"red"*/"#dd1d1d"
     return (
-        <Card style={{backgroundColor: "dimgrey", color, display: "inline-block"}}>
+        <Card style={{backgroundColor: "#e5e5e5", color, display: "inline-block"}}>
             <div className={styles.title}>
                 {text}
             </div>

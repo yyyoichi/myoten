@@ -4,22 +4,23 @@
     min-height: 50px;
     margin: 8px 10px;
     border-radius: 10px;
-    border: solid 1px gray;
+    border: solid 1px #bdbdbd;
     color: black;
 }
 .wrapper:hover {
     cursor: pointer;
-    background-color:chartreuse;
-    color: aliceblue;
+    background-color:#a0ff41;
+    color: white;
 }
 
 .title {
     font-weight: bold;
     font-size: 20px;
     text-align: center;
+    text-justify:distribute;
 }
 .sub {
     font-size: 15px;
     text-align: right;
-    color: white;
+    color: rgb(59, 59, 59);
 }

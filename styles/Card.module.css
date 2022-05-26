@@ -1,4 +1,7 @@
 .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 5px 20px;
     min-width: 100px;
     min-height: 50px;
@@ -23,4 +26,9 @@
     font-size: 15px;
     text-align: right;
     color: rgb(59, 59, 59);
+}
+.hintText {
+    color: "#5c5c5c";
+    text-align: center;
+    margin: auto 0;
 }

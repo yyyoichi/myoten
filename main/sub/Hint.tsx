@@ -2,6 +2,7 @@ import { useState } from "react"
 import FadeIn from "../../component/anime/FadeIn"
 import Card from "../../component/atom/Card"
 import DayWeather from "../../weather/DayWeather"
+import styles from "../../styles/Card.module.css"
 
 type Props = {
     dayWeather: DayWeather
@@ -14,8 +15,8 @@ export default function Hint({ dayWeather }: Props) {
     return (
         <>
             <FadeIn toggle={!isOpen} display={true}>
-                <Card style={{backgroundColor: "khaki", color: "dimgray"}}>
-                    <div onClick={onClick}>ヒントを見る</div>
+                <Card style={{backgroundColor: "#fff5a0", color: "#5c5c5c"}}>
+                    <div onClick={onClick} className={styles.hintText}>ヒントを見る</div>
                 </Card>
             </FadeIn>
 

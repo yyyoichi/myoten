@@ -4,6 +4,7 @@ import Top from '../main/Top';
 import { WeekWeatherContext } from './_app';
 import { getWeathreMap } from '../logic/weatherMap';
 import Wrapper from '../component/frame/Wrapper';
+import Head from 'next/head';
 
 
 type Props = {
@@ -12,11 +13,18 @@ type Props = {
 export default function Home({ imgSrc }: Props) {
   const wth = useContext(WeekWeatherContext);
   return (
-    <Wrapper>
-      <FadeIn toggle={wth.hasData()} display={true}>
-        <Top imgSrc={imgSrc} />
-      </FadeIn>
-    </Wrapper>
+    <>
+      <Head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+        <link href="https://fonts.googleapis.com/css2?family=Train+One&display=swap" rel="stylesheet" />
+      </Head>
+      <Wrapper>
+        <FadeIn toggle={wth.hasData()} display={true}>
+          <Top imgSrc={imgSrc} />
+        </FadeIn>
+      </Wrapper>
+    </>
   )
 }
 

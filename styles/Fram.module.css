@@ -5,9 +5,30 @@
     background-color:ghostwhite;
 }
 .header {
-    height: 80px;
+    height: 70px;
     background-color: limegreen;
     color: aliceblue;
+}
+
+.headBox {
+    display: flex;
+    font-family: 'Train One', cursive;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.headTitle {
+    display: inline-block;
+    font-size: 50px;
+    padding: 0 20px;
+    margin: 0;
+    letter-spacing: 4px;
+    
+}
+
+.headSub {
+    display: inline-block;
+    letter-spacing: 2px;
 }
 
 .footer {

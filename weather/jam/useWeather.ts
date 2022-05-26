@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import WeekWeather from "../WeekWeather";
+import JamWW from "../week/JamWW";
+import WeekWeather from "../week/WeekWeather";
 
 export default function useWeather() {
-    const [wth, setW] = useState<WeekWeather>(new WeekWeather(null));
+    const [wth, setW] = useState<WeekWeather>(new JamWW(null));
     const [after, setAfter] = useState<number>(1);
     const [place, setPlace] = useState<string>("tokyo")
     useEffect(() => {

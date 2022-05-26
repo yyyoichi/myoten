@@ -23,7 +23,6 @@
     padding: 0 20px;
     margin: 0;
     letter-spacing: 4px;
-    
 }
 
 .headSub {
@@ -32,7 +31,22 @@
 }
 
 .footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     min-height: 100px;
+    font-family: 'Train One', cursive;
     background-color: dimgrey;
     color: aliceblue;
+    letter-spacing: 2px;
+}
+.footTitle {
+    padding: 10px 0;
+    letter-spacing: 4px;
+}
+
+.footSub {
+    font-size: 10px;
+    letter-spacing: 2px;
 }

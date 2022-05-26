@@ -23,6 +23,7 @@
 }
 
 .selectCards {
+    display: inline-block;
     margin: 20px 0;
 }
 .hintCard {

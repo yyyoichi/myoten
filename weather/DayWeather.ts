@@ -16,14 +16,8 @@ export default class DayWeather {
         other: "その他"
     };
     static aboutWeatherList: AboutWeather[] = ["clear_p_cloudy", "clear", "cloudy", "rain", "snow", "fog", "showers"]
-    private randomWeather: AboutJPWeather[] = ["晴れ一時曇り", "晴れ", "曇り", "雨", "雪", "霧", "不安定な天気"]
+    private aboutJPWeatherList: AboutJPWeather[] = ["晴れ一時曇り", "晴れ", "曇り", "雨", "雪", "霧", "不安定な天気"]
     constructor(private wIndex: WeatherIndex, private empty: boolean = false) {
-    }
-    getRandomWeather() {
-        if(!this.isEmply) return []
-        if(this.randomWeather.length !== 0) return this.randomWeather
-        this.randomWeather = getRdmWth(this.getAboutJPWeather(), 4);
-        return this.randomWeather;
     }
     isEmply() {
         return this.empty;

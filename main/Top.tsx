@@ -11,6 +11,7 @@ import FlexRatio from "../component/atom/FlexRatio";
 import styles from "../styles/top/Top.module.css";
 import SuccessCard from "./sub/SuccessCard";
 import ChoisCard from "./sub/ChoisCard";
+import DayWeather from "../weather/DayWeather";
 type Props = {
     imgSrc: string
 }
@@ -18,7 +19,7 @@ export default function Top({ imgSrc }: Props) {
     const [after, setAfter] = useState(1);
     const wth = useContext(WeekWeatherContext);
     const dayWeather = wth.getDay(after)
-    const weatherOpt = dayWeather.getRandomWeather()
+    const weatherOpt = DayWeather.aboutJPWeatherList
     return (
         <Main>
             <FlexRow>
@@ -39,12 +40,12 @@ export default function Top({ imgSrc }: Props) {
                     <FlexColumn>
                         <h2 className={styles.h2}>明日の天気は？</h2>
                         <div className={styles.selectCards}>
-                            {/* {
+                            {
                                 weatherOpt.map(((jpw, i) => {
                                     return <ChoisCard key={`${jpw}_${i}`} selectionW={jpw} nowWeather={dayWeather.getAboutJPWeather()} />
                                 }))
 
-                            } */}
+                            }
                         </div>
                         <FlexSpace marginDirection={"marginTop"}>
                             <div className={styles.hintCard}>

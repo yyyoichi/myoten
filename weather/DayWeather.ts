@@ -15,7 +15,8 @@ export default class DayWeather {
         showers: "不安定な天気",
         other: "その他"
     };
-    private randomWeather: AboutJPWeather[] = []
+    static aboutWeatherList: AboutWeather[] = ["clear_p_cloudy", "clear", "cloudy", "rain", "snow", "fog", "showers"]
+    private randomWeather: AboutJPWeather[] = ["晴れ一時曇り", "晴れ", "曇り", "雨", "雪", "霧", "不安定な天気"]
     constructor(private wIndex: WeatherIndex, private empty: boolean = false) {
     }
     getRandomWeather() {

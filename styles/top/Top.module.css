@@ -23,7 +23,10 @@
 }
 
 .selectCards {
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
     margin: 20px 0;
 }
 .hintCard {

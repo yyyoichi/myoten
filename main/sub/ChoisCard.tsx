@@ -1,7 +1,6 @@
 import { useState } from "react"
 import FadeIn from "../../component/anime/FadeIn"
 import Card from "../../component/atom/Card"
-import InlineBlock from "../../component/atom/InlineBlock"
 import { AboutJPWeather } from "../../weather/WeatherIndex"
 import SuccessCard from "./SuccessCard"
 
@@ -15,7 +14,7 @@ export default function ChoisCard({ nowWeather, selectionW }: Props) {
         setOpen((o) => !o);
     }
     return (
-        <InlineBlock>
+        <>
             <FadeIn toggle={!isOpen} display={true}>
                 <SuccessCard isSuccess={nowWeather === selectionW} selectWeather={selectionW} />
             </FadeIn>
@@ -26,6 +25,6 @@ export default function ChoisCard({ nowWeather, selectionW }: Props) {
                     </Card>
                 </div>
             </FadeIn>
-        </InlineBlock>
+        </>
     )
 }

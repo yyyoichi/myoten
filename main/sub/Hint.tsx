@@ -16,7 +16,7 @@ export default function Hint({ dayWeather }: Props) {
         <>
             <FadeIn toggle={!isOpen} display={true}>
                 <div onClick={onClick} >
-                    <Card style={{ backgroundColor: "#fff5a0", color: "#5c5c5c" }}>
+                    <Card style={{ backgroundColor: "#a0caff", color: "#585858" }}>
                         <div className={styles.hintText}>ヒントを見る</div>
                     </Card>
                 </div>

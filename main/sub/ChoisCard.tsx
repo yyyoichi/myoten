@@ -16,7 +16,9 @@ export default function ChoisCard({ nowWeather, selectionW }: Props) {
     return (
         <>
             <FadeIn toggle={!isOpen} display={true}>
-                <SuccessCard isSuccess={nowWeather === selectionW} selectWeather={selectionW} />
+                <div onClick={onClick}>
+                    <SuccessCard isSuccess={nowWeather === selectionW} selectWeather={selectionW} />
+                </div>
             </FadeIn>
             <FadeIn toggle={isOpen} display={true}>
                 <div onClick={onClick}>

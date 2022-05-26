@@ -15,18 +15,20 @@ export default function Hint({ dayWeather }: Props) {
     return (
         <>
             <FadeIn toggle={!isOpen} display={true}>
-                <Card style={{backgroundColor: "#fff5a0", color: "#5c5c5c"}}>
-                    <div onClick={onClick} className={styles.hintText}>ヒントを見る</div>
-                </Card>
+                <div onClick={onClick} >
+                    <Card style={{ backgroundColor: "#fff5a0", color: "#5c5c5c" }}>
+                        <div className={styles.hintText}>ヒントを見る</div>
+                    </Card>
+                </div>
             </FadeIn>
 
             <FadeIn toggle={isOpen} display={true}>
-                <Card>
-                    <div onClick={onClick}>
+                <div onClick={onClick}>
+                    <Card>
                         <div>最高気温: {dayWeather.getTmp2Max()}</div>
                         <div>最低気温: {dayWeather.getTmp2Min()}</div>
-                    </div>
-                </Card>
+                    </Card>
+                </div>
             </FadeIn>
         </>
     )

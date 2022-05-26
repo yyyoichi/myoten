@@ -16,7 +16,7 @@ export default class DayWeather {
         other: "その他"
     };
     static aboutWeatherList: AboutWeather[] = ["clear_p_cloudy", "clear", "cloudy", "rain", "snow", "fog", "showers"]
-    private aboutJPWeatherList: AboutJPWeather[] = ["晴れ一時曇り", "晴れ", "曇り", "雨", "雪", "霧", "不安定な天気"]
+    static aboutJPWeatherList: AboutJPWeather[] = ["晴れ一時曇り", "晴れ", "曇り", "雨", "雪", "霧", "不安定な天気"]
     constructor(private wIndex: WeatherIndex, private empty: boolean = false) {
     }
     isEmply() {

@@ -1,18 +1,16 @@
 .wrapper {
     display: flex;
     flex-direction: column;
-    width: 100vw;
-    max-height: 100vh;
+    min-height: 100vh;
     background-color:ghostwhite;
 }
 .header {
-    height: 100px;
+    height: 80px;
     background-color: limegreen;
     color: aliceblue;
 }
 
 .footer {
-    margin-top: auto;
     min-height: 100px;
     background-color: dimgrey;
     color: aliceblue;

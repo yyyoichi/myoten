@@ -3,7 +3,7 @@ import Top from '../main/Top';
 import { getWeathreMap } from '../logic/weatherMap';
 import Wrapper from '../component/frame/Wrapper';
 import Head from 'next/head';
-import useWeather from '../weather/jam/useWeather';
+import useWeather from '../weather/useWeather';
 
 
 type Props = {

@@ -9,7 +9,7 @@ import FlexRatio from "../component/atom/FlexRatio";
 import styles from "../styles/top/Top.module.css";
 import ChoisCard from "./sub/ChoisCard";
 import DayWeather from "../weather/DayWeather";
-import useWeather from "../weather/jam/useWeather";
+import useWeather from "../weather/useWeather";
 type Props = {
     imgSrc: string
 }

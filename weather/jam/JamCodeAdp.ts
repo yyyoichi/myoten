@@ -1,8 +1,8 @@
-import CodeAdapter, { AboutJPWeather } from "../week/CodeAdapter";
+import CodeAdp, { AboutJPWeather, CodeAdapter } from "../week/CodeAdapter";
 
-export default class JamCodeAdp extends CodeAdapter {
+export default class JamCodeAdp extends CodeAdp implements CodeAdapter {
     protected aboutJPWeather: AboutJPWeather[] = [];
-    private code : string;
+    private code: string;
     private static MAP: { [code: string]: [string, string, string, string, string] } = {
         "100": ["100.svg", "500.svg", "100", "晴", "CLEAR"],
         "101": ["101.svg", "501.svg", "100", "晴時々曇", "PARTLY CLOUDY"],
@@ -126,10 +126,14 @@ export default class JamCodeAdp extends CodeAdapter {
     }
     constructor(code: string | number) {
         super();
+        if (!code) {
+            code = ""
+        }
         this.code = String(code)
     }
     protected _getAboutJPWeather(): AboutJPWeather[] {
         const code = this.code
+        if(!code) return []
         const jpDetail = JamCodeAdp.MAP[code][3];
         const tenki: AboutJPWeather[] = ["晴", "曇", "雨", "雪", "霧"]
         const weather = tenki.reduce((o: { w: AboutJPWeather, i: number }[], w) => {
@@ -140,7 +144,7 @@ export default class JamCodeAdp extends CodeAdapter {
             console.log(w, i);
             return [...o, { w, i }]
         }, []).sort((a, b) => {
-            if(a["i"] > b["i"]) return 1;
+            if (a["i"] > b["i"]) return 1;
             return -1;
         }).map(o => {
             return o["w"]

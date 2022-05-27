@@ -1,6 +1,7 @@
-import WeekWeather from "../week/WeekWeather";
+import WeekWeather, { WeatherKey } from "../week/WeekWeather";
 import { WeatherIndex } from "../WeatherIndex"
 import FormatDate from "../../logic/FormatDate";
+import JamCodeAdp from "./JamCodeAdp";
 
 export default class JamWW extends WeekWeather {
     constructor(json = null) {
@@ -15,12 +16,12 @@ export default class JamWW extends WeekWeather {
         console.log(tmpsMax)
         console.log(tempsMin)
         console.log(dates)
-        const weather = weatherCodes.reduce((ws: WeatherIndex[], c: string, i: number) => {
+        const weather = weatherCodes.reduce((ws: WeatherKey[], c: string, i: number) => {
             const w = {
                 date: new FormatDate(dates[i]),
                 tmp2max: tmpsMax[i],
                 tmp2min: tempsMin[i],
-                wcode: c
+                wcode: new JamCodeAdp(c)
             }
             return [...ws, w]
         }, [])

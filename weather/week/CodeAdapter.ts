@@ -1,11 +1,11 @@
 export type AboutJPWeather = "晴" | "曇" | "雨" | "雪" | "霧"
-export interface CodeAdp {
+export interface CodeAdapter {
     // code: number | string;
     // aboutJPWeather: AboutJPWeather[];
     getAboutJPWeather: () => AboutJPWeather[];
 }
 
-export default abstract class CodeAdapter {
+export default abstract class CodeAdp {
     protected aboutJPWeather: AboutJPWeather[] = []
     public getAboutJPWeather(): AboutJPWeather[] {
         if (this.aboutJPWeather.length > 0) {

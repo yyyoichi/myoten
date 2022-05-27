@@ -12,8 +12,7 @@ export default function useWeather() {
             const json = await res.json();
             console.log(json);
             const data = new JamWW(json)
-            // const data = new WeekWeather(json);
-            // setW(data);
+            setW(data);
         })
     }, [place])
     const weather = wth.getDay(after)

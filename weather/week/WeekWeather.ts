@@ -1,14 +1,7 @@
 import FormatDate from "../../logic/FormatDate"
 import JamCodeAdp from "../adapter/JamCodeAdp";
-import { CodeAdapter } from "../adapter/CodeAdapter";
 import DayWeather from "../day/DayWeather";
-
-export type WeatherKey = {
-    date: FormatDate
-    tmp2max: number,
-    tmp2min: number,
-    wcode: CodeAdapter
-}
+import { WeatherKey } from "../WeatherIF";
 
 export default abstract class WeekWeather {
     private weather: Array<WeatherKey> = [];

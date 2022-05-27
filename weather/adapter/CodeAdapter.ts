@@ -1,4 +1,5 @@
-export type AboutJPWeather = "晴" | "曇" | "雨" | "雪" | "霧"
+import { AboutJPWeather } from "../WeatherIF";
+
 export interface CodeAdapter {
     // code: number | string;
     // aboutJPWeather: AboutJPWeather[];

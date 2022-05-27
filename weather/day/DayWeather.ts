@@ -1,4 +1,4 @@
-import { WeatherKey } from "../week/WeekWeather";
+import { WeatherKey } from "../WeatherIF";
 
 export default class DayWeather {
     constructor(private weather: WeatherKey, private empty: boolean = false) {

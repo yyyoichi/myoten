@@ -2,9 +2,8 @@ import FormatDate from "../../logic/FormatDate";
 import { WeatherIndex } from "../WeatherIndex";
 import WeekWeather from "../week/WeekWeather";
 
-export default class MeteoWW extends WeekWeather {
+export default class MeteoWW {
     constructor(json = null) {
-        super();
         if (!json) return;
         const d = json["daily"];
         const times = d["time"] as string[]
@@ -15,6 +14,6 @@ export default class MeteoWW extends WeekWeather {
             const wcode: number = d["weathercode"][i];
             return [...ws, { date, tmp2max, tmp2min, wcode }]
         }, []);
-        this.setWeather(weather)
+        // this.setWeather(weather)
     }
 }

@@ -1,6 +1,6 @@
 import Card from "../../component/atom/Card"
-import { AboutJPWeather } from "../../weather/WeatherIndex"
 import styles from "../../styles/Card.module.css";
+import { AboutJPWeather } from "../../weather/WeatherIF";
 
 type Props = {
     isSuccess: boolean,

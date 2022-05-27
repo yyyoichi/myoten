@@ -142,7 +142,6 @@ export default class JamCodeAdp extends CodeAdp implements CodeAdapter {
             if (i === -1) {
                 return o
             }
-            console.log(w, i);
             return [...o, { w, i }]
         }, []).sort((a, b) => {
             if (a["i"] > b["i"]) return 1;

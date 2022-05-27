@@ -10,7 +10,6 @@ export default function useWeather() {
         const url = "https://www.jma.go.jp/bosai/forecast/data/forecast/130000.json";
         fetch(url).then(async (res) => {
             const json = await res.json();
-            console.log(json);
             const data = new JamWW(json)
             setW(data);
         })

@@ -1,13 +1,13 @@
 import { useState } from "react"
 import FadeIn from "../../component/anime/FadeIn"
 import Card from "../../component/atom/Card"
-import { AboutJPWeather } from "../../weather/WeatherIndex"
 import SuccessCard from "./SuccessCard"
 
 import styles from "../../styles/Card.module.css"
+import { AboutJPWeather } from "../../weather/WeatherIF"
 
 type Props = {
-    nowWeather: AboutJPWeather,
+    nowWeather: AboutJPWeather[],
     selectionW: AboutJPWeather,
 }
 export default function ChoisCard({ nowWeather, selectionW }: Props) {
@@ -19,7 +19,7 @@ export default function ChoisCard({ nowWeather, selectionW }: Props) {
         <>
             <FadeIn toggle={!isOpen} display={true}>
                 <div onClick={onClick}>
-                    <SuccessCard isSuccess={nowWeather === selectionW} selectWeather={selectionW} />
+                    <SuccessCard isSuccess={nowWeather.includes(selectionW)} selectWeather={selectionW} />
                 </div>
             </FadeIn>
             <FadeIn toggle={isOpen} display={true}>

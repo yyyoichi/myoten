@@ -1,6 +1,4 @@
-import { useState } from "react";
 import Main from "../component/frame/Main";
-import Hint from "./sub/Hint";
 import FlexRow from "../component/atom/FlexRow";
 import FlexColumn from "../component/atom/FlexColumn";
 import FlexSpace from "../component/atom/FlexSpace";
@@ -8,14 +6,13 @@ import FlexRatio from "../component/atom/FlexRatio";
 
 import styles from "../styles/top/Top.module.css";
 import ChoisCard from "./sub/ChoisCard";
-import DayWeather from "../weather/day/MeteoDW";
 import useWeather from "../weather/useWeather";
+import { aboutJPWeathers } from "../weather/WeatherIF";
 type Props = {
     imgSrc: string
 }
 export default function Top({ imgSrc }: Props) {
     const {weather: dayWeather} = useWeather();
-    const weatherOpt = DayWeather.aboutJPWeatherList
     return (
         <Main>
             <FlexRow>
@@ -36,12 +33,12 @@ export default function Top({ imgSrc }: Props) {
                     <FlexColumn>
                         <h2 className={styles.h2}>明日の天気は？</h2>
                         <div className={styles.selectCards}>
-                            {/* {
-                                weatherOpt.map(((jpw, i) => {
+                            {
+                                aboutJPWeathers.map(((jpw, i) => {
                                     return <ChoisCard key={`${jpw}_${i}`} selectionW={jpw} nowWeather={dayWeather.getAboutJPWeather()} />
                                 }))
 
-                            } */}
+                            }
                         </div>
                         <FlexSpace marginDirection={"marginTop"}>
                             <div className={styles.hintCard}>

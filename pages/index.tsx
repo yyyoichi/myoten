@@ -19,7 +19,7 @@ export default function Home({ imgSrc }: Props) {
         <link href="https://fonts.googleapis.com/css2?family=Train+One&display=swap" rel="stylesheet" />
       </Head>
       <Wrapper>
-        <FadeIn toggle={weather.isEmply()} display={true}>
+        <FadeIn toggle={!weather.isEmply()} display={true}>
           <Top imgSrc={imgSrc} />
         </FadeIn>
       </Wrapper>

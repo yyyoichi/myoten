@@ -21,6 +21,6 @@ export default class DayWeather {
     getAboutWeather() {
     }
     getAboutJPWeather() {
-        this.weather["wcode"].getAboutJPWeather();
+        return this.weather["wcode"].getAboutJPWeather();
     }
 }

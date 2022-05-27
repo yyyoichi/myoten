@@ -1,4 +1,4 @@
-import WeekWeather from "./WeekWeather";
+import WeekWeather from "../week/WeekWeather";
 import { WeatherIndex } from "../WeatherIndex"
 import FormatDate from "../../logic/FormatDate";
 

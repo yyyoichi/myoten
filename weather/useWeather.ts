@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import JamWW from "../week/JamWW";
-import WeekWeather from "../week/WeekWeather";
+import JamWW from "./jam/JamWW";
+import WeekWeather from "./week/WeekWeather";
 
 export default function useWeather() {
     const [wth, setW] = useState<WeekWeather>(new JamWW(null));

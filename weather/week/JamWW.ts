@@ -1,7 +1,6 @@
 import WeekWeather, { WeatherKey } from "./WeekWeather";
-import { WeatherIndex } from "../WeatherIndex"
 import FormatDate from "../../logic/FormatDate";
-import JamCodeAdp from "./adapter/JamCodeAdp";
+import JamCodeAdp from "../adapter/JamCodeAdp";
 
 export default class JamWW extends WeekWeather {
     constructor(json = null) {

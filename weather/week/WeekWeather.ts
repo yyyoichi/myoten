@@ -1,7 +1,7 @@
 import FormatDate from "../../logic/FormatDate"
-import DayWeather from "../day/MeteoDW";
-import JamCodeAdp from "./adapter/JamCodeAdp";
-import { CodeAdapter } from "./adapter/CodeAdapter";
+import JamCodeAdp from "../adapter/JamCodeAdp";
+import { CodeAdapter } from "../adapter/CodeAdapter";
+import DayWeather from "../day/DayWeather";
 
 export type WeatherKey = {
     date: FormatDate
@@ -28,11 +28,11 @@ export default abstract class WeekWeather {
             tmp2min: 0,
             wcode: new JamCodeAdp("")
         }
-        // return new DayWeather(d, true);
+        return new DayWeather(d, true);
     }
     getDay(after: number) {
         if (!this.hasData()) return this._getEmpty()
-        // return new DayWeather(this.weather[after])
+        return new DayWeather(this.weather[after])
     }
     getToday() {
         return this.getDay(0);

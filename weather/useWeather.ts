@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import JamWW from "./jam/JamWW";
+import JamWW from "./week/JamWW";
 import WeekWeather from "./week/WeekWeather";
 
 export default function useWeather() {

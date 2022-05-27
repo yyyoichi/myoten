@@ -1,6 +1,6 @@
 import shuffleArray from "../logic/shuffleArray";
 import ExtendsArray from "../logic/shuffleArray";
-import DayWeather from "./DayWeather";
+import DayWeather from "./day/MeteoDW";
 import { AboutJPWeather } from "./WeatherIndex";
 
 export default function getRdmWth(now: AboutJPWeather, num = 4) {

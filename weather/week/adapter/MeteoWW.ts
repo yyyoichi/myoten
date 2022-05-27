@@ -1,6 +1,6 @@
-import FormatDate from "../../logic/FormatDate";
-import { WeatherIndex } from "../WeatherIndex";
-import WeekWeather from "../week/WeekWeather";
+import FormatDate from "../../../logic/FormatDate";
+import { WeatherIndex } from "../../WeatherIndex";
+import WeekWeather from "../WeekWeather";
 
 export default class MeteoWW {
     constructor(json = null) {

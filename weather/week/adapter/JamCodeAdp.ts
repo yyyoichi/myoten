@@ -1,4 +1,4 @@
-import CodeAdp, { AboutJPWeather, CodeAdapter } from "../week/CodeAdapter";
+import CodeAdp, { AboutJPWeather, CodeAdapter } from "./CodeAdapter";
 
 export default class JamCodeAdp extends CodeAdp implements CodeAdapter {
     protected aboutJPWeather: AboutJPWeather[] = [];

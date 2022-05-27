@@ -1,6 +1,6 @@
-import getRdmWth from "./getRdmWth";
-import getRandomWeather from "./getRdmWth";
-import { AboutJPWeather, AboutWeather, WeatherIndex } from "./WeatherIndex";
+import getRdmWth from "../getRdmWth";
+import getRandomWeather from "../getRdmWth";
+import { AboutJPWeather, AboutWeather, WeatherIndex } from "../WeatherIndex";
 
 
 

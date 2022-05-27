@@ -1,7 +1,7 @@
 import FormatDate from "../../logic/FormatDate"
-import DayWeather from "../DayWeather";
-import JamCodeAdp from "../jam/JamCodeAdp";
-import { CodeAdapter } from "./CodeAdapter";
+import DayWeather from "../day/MeteoDW";
+import JamCodeAdp from "./adapter/JamCodeAdp";
+import { CodeAdapter } from "./adapter/CodeAdapter";
 
 export type WeatherKey = {
     date: FormatDate

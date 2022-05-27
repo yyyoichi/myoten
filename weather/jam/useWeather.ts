@@ -11,6 +11,7 @@ export default function useWeather() {
         fetch(url).then(async (res) => {
             const json = await res.json();
             console.log(json);
+            const data = new JamWW(json)
             // const data = new WeekWeather(json);
             // setW(data);
         })

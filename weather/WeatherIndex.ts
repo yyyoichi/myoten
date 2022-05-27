@@ -4,7 +4,7 @@ export type WeatherIndex = {
     date: FormatDate
     tmp2max: number,
     tmp2min: number,
-    wcode: number
+    wcode: number | string
 }
 
 export type AboutWeather = "clear_p_cloudy" | "clear" | "cloudy" | "rain" | "snow" | "fog" | "showers" | "other"

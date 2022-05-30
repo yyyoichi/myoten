@@ -1,4 +1,4 @@
-import puppeteer from "puppeteer";
+const puppeteer = require("puppeteer");
 export const getWeathreMap = async () => {
     const url = "https://www.jma.go.jp/bosai/weather_map/";
     const browser = await puppeteer.launch()

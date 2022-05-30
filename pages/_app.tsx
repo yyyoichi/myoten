@@ -1,6 +1,6 @@
 import { AppProps } from 'next/app';
 import '../styles/globals.css'
-import useWeather from '../components/useWeather';
+import useWeather from '../weather/useWeather';
 
 function MyApp({ Component, pageProps }: AppProps) {
   useWeather();

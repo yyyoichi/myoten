@@ -6,7 +6,7 @@ import FlexRatio from "../component/atom/FlexRatio";
 
 import styles from "../styles/top/Top.module.css";
 import ChoisCard from "./sub/ChoisCard";
-import useWeather from "../components/useWeather";
+import useWeather from "../weather/useWeather";
 import { aboutJPWeathers } from "../weather/WeatherIF";
 type Props = {
     imgSrc: string

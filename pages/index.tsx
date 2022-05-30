@@ -28,10 +28,10 @@ export default function Home({ imgSrc }: Props) {
 }
 
 export async function getStaticProps() {
-  // const imgSrc = await getWeathreMap();
+  const imgSrc = await getWeathreMap();
   return {
     props: {
-      imgSrc : "https://www.jma.go.jp/bosai/weather_map/data/png/20220530020931_0_Z__C_010000_20220530000000_MET_CHT_JCIspas_JCP600x581_JRcolor_Tjmahp_image.png"
+      imgSrc
     },
     revalidate: 60 * 60 * 6 // 6時間ごと
   };

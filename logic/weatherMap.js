@@ -1,5 +1,5 @@
 const puppeteer = require("puppeteer");
-export const getWeathreMap = async () => {
+const getWeathreMap = async () => {
     const url = "https://www.jma.go.jp/bosai/weather_map/";
     const browser = await puppeteer.launch()
     const page = await browser.newPage()
@@ -10,3 +10,5 @@ export const getWeathreMap = async () => {
     console.log(imgSrc)
     return imgSrc;
 }
+
+module.exports =  getWeathreMap;

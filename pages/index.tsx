@@ -4,6 +4,7 @@ import getWeathreMap from '../logic/weatherMap';
 import Wrapper from '../component/frame/Wrapper';
 import Head from 'next/head';
 import useWeather from '../weather/useWeather';
+import puppeteer from "puppeteer";
 
 
 type Props = {
@@ -28,7 +29,14 @@ export default function Home({ imgSrc }: Props) {
 }
 
 export async function getStaticProps() {
-  const imgSrc = await getWeathreMap();
+  const url = "https://www.jma.go.jp/bosai/weather_map/";
+  const browser = await puppeteer.launch()
+  const page = await browser.newPage()
+  await page.goto(url, { waitUntil: 'networkidle2' })
+  const img = await page.$('.weather-map-viewarea img')
+  const src = await (await img?.getProperty('src'))
+  const imgSrc = await src?.jsonValue()
+  // const imgSrc = await getWeathreMap();
   return {
     props: {
       imgSrc

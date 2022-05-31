@@ -5,6 +5,7 @@ import Wrapper from '../component/frame/Wrapper';
 import Head from 'next/head';
 import useWeather from '../weather/useWeather';
 import puppeteer from "puppeteer";
+import getWeatherMap from '../weather/getWeatherMap';
 
 
 
@@ -30,20 +31,11 @@ export default function Home({ imgSrc }: Props) {
 }
 
 export async function getStaticProps() {
-  const url = "https://www.jma.go.jp/bosai/weather_map/";
-  const browser = await puppeteer.launch({
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
-  })
-  const page = await browser.newPage()
-  await page.goto(url, { waitUntil: 'networkidle2' })
-  const img = await page.$('.weather-map-viewarea img')
-  const src = await (await img?.getProperty('src'))
-  const imgSrc = await src?.jsonValue()
-  console.log(imgSrc)
+  
   return {
     props: {
-      imgSrc
+      imgSrc: await getWeatherMap()
     },
-    revalidate: 60 * 60 * 6 // 6時間ごと
+    revalidate: 60 * 30 // 30分ごと
   };
 }

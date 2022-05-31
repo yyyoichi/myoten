@@ -4,7 +4,7 @@ import FlexColumn from "../../components/atom/FlexColumn";
 import FlexSpace from "../../components/atom/FlexSpace";
 import FlexRatio from "../../components/atom/FlexRatio";
 
-import styles from "../styles/top/Top.module.css";
+import styles from "../../styles/top/Top.module.css";
 import ChoisCard from "./sub/ChoisCard";
 import useWeather from "../../weather/useWeather";
 import { aboutJPWeathers } from "../../weather/WeatherIF";

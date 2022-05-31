@@ -3,7 +3,7 @@ import FadeIn from "../../../components/anime/FadeIn"
 import Card from "../../../components/atom/Card"
 import SuccessCard from "./SuccessCard"
 
-import styles from "../../styles/Card.module.css"
+import styles from "../../../styles/Card.module.css"
 import { AboutJPWeather } from "../../../weather/WeatherIF"
 
 type Props = {

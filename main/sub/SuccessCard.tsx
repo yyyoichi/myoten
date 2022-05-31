@@ -1,4 +1,4 @@
-import Card from "../../component/atom/Card"
+import Card from "../../components/atom/Card"
 import styles from "../../styles/Card.module.css";
 import { AboutJPWeather } from "../../weather/WeatherIF";
 

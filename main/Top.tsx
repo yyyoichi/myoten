@@ -1,8 +1,8 @@
-import Main from "../component/frame/Main";
-import FlexRow from "../component/atom/FlexRow";
-import FlexColumn from "../component/atom/FlexColumn";
-import FlexSpace from "../component/atom/FlexSpace";
-import FlexRatio from "../component/atom/FlexRatio";
+import Main from "../components/frame/Main";
+import FlexRow from "../components/atom/FlexRow";
+import FlexColumn from "../components/atom/FlexColumn";
+import FlexSpace from "../components/atom/FlexSpace";
+import FlexRatio from "../components/atom/FlexRatio";
 
 import styles from "../styles/top/Top.module.css";
 import ChoisCard from "./sub/ChoisCard";

@@ -1,6 +1,6 @@
-import FadeIn from '../component/anime/FadeIn';
+import FadeIn from '../components/anime/FadeIn';
 import Top from '../main/Top';
-import Wrapper from '../component/frame/Wrapper';
+import Wrapper from '../components/frame/Wrapper';
 import useWeather from '../weather/useWeather';
 import getWeatherMap from '../weather/getWeatherMap';
 

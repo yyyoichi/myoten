@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "../../styles/Fram.module.css";
 export default function Footer() {
     return (
@@ -5,8 +6,8 @@ export default function Footer() {
             <div className={styles.footTitle}>明天</div>
             <div className={styles.footSub}>MYOTEN</div>
             <div className={styles.footerLinkBox}>
-                <div className={styles.footerLink}><a href="/info/coment">利用規約</a></div>
-                <div className={styles.footerLink}><a href="/info/privacy">プライバシーポリシー</a></div>
+                <div className={styles.footerLink}><Link href="/info/coment"><a>利用規約</a></Link></div>
+                <div className={styles.footerLink}><Link href="/info/privacy"><a>プライバシーポリシー</a></Link></div>
             </div>
         </div>
     )

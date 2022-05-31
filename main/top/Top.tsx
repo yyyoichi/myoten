@@ -8,6 +8,7 @@ import styles from "../../styles/top/Top.module.css";
 import ChoisCard from "./sub/ChoisCard";
 import useWeather from "../../weather/useWeather";
 import { aboutJPWeathers } from "../../weather/WeatherIF";
+import Hint from "./sub/Hint";
 type Props = {
     imgSrc: string
 }
@@ -31,7 +32,7 @@ export default function Top({ imgSrc }: Props) {
                 </FlexRatio>
                 <FlexRatio ratio={3}>
                     <FlexColumn>
-                        <h2 className={styles.h2}>明日の天気は？</h2>
+                        <h2 className={styles.h2}>東京の明日の天気は？</h2>
                         <div className={styles.selectCards}>
                             {
                                 aboutJPWeathers.map(((jpw, i) => {
@@ -42,7 +43,7 @@ export default function Top({ imgSrc }: Props) {
                         </div>
                         <FlexSpace marginDirection={"marginTop"}>
                             <div className={styles.hintCard}>
-                                {/* <Hint dayWeather={dayWeather} /> */}
+                                <Hint dayWeather={dayWeather} />
                             </div>
                         </FlexSpace>
                     </FlexColumn>

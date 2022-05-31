@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import Main from '../../components/frame/Main'
 import Wrapper from "../../components/frame/Wrapper"
 
@@ -13,8 +14,8 @@ export default function Home() {
                 <Main>
                     <div>
                         <h2>明天 -MYOTEN- ついて</h2>
-                        <p>明天 -MYOTEN- (以下、当サイト)は、<a style={{color: "blue"}} href="https://www.jma.go.jp/" target="_blank" rel="noopener noreferrer">気象庁ホームページ</a>で公開されている天気図、天気予報（以下、コンテンツ）を用いています。</p>
-                        <p>コンテンツ利用は、気象庁ホームページで公開されてる <a style={{color: "blue"}} href="https://www.jma.go.jp/jma/kishou/info/coment.html" target="_blank" rel="noopener noreferrer">利用規約</a>に基づいています。</p>
+                        <p>明天 -MYOTEN- (以下、当サイト)は、<Link href="https://www.jma.go.jp/"><a style={{color: "blue"}} target="_blank" rel="noopener noreferrer">気象庁ホームページ</a></Link>で公開されている天気図、天気予報（以下、コンテンツ）を用いています。</p>
+                        <p>コンテンツ利用は、気象庁ホームページで公開されてる <Link href="https://www.jma.go.jp/jma/kishou/info/coment.html"><a style={{color: "blue"}} target="_blank" rel="noopener noreferrer">利用規約</a></Link>に基づいています。</p>
                         <p>また、当サイトは気象を予報、予測するものではありません。</p>
                     </div>
                     <div>

@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import Main from '../../components/frame/Main'
 import Wrapper from "../../components/frame/Wrapper"
 
@@ -21,7 +22,7 @@ export default function Home() {
                         <p>当サイトは、アクセス解析ツール「Googleアナリティクス」を使用しています。</p>
                         <p>Googleアナリティクスは、当サイトの利用者のデータをCookieを用いて収集しています。</p>
                         <p>収集されたデータは匿名であり、個人を特定するものではありません。</p>
-                        <p>データの収集についての詳細は、「<a style={{color: "blue"}} href="https://policies.google.com/technologies/ads?hl=ja" target="_blank" rel="noopener noreferrer">Googleポリシーと規約</a>」を確認してください。</p>
+                        <p>データの収集についての詳細は、「 <Link href="https://policies.google.com/technologies/ads?hl=ja"><a style={{color: "blue"}} target="_blank" rel="noopener noreferrer">Googleポリシーと規約</a></Link>」を確認してください。</p>
                     </div>
                     <div>
                         <h2>発行</h2>

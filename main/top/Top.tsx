@@ -1,13 +1,14 @@
-import Main from "../component/frame/Main";
-import FlexRow from "../component/atom/FlexRow";
-import FlexColumn from "../component/atom/FlexColumn";
-import FlexSpace from "../component/atom/FlexSpace";
-import FlexRatio from "../component/atom/FlexRatio";
+import Main from "../../components/frame/Main";
+import FlexRow from "../../components/atom/FlexRow";
+import FlexColumn from "../../components/atom/FlexColumn";
+import FlexSpace from "../../components/atom/FlexSpace";
+import FlexRatio from "../../components/atom/FlexRatio";
 
-import styles from "../styles/top/Top.module.css";
+import styles from "../../styles/top/Top.module.css";
 import ChoisCard from "./sub/ChoisCard";
-import useWeather from "../weather/useWeather";
-import { aboutJPWeathers } from "../weather/WeatherIF";
+import useWeather from "../../weather/useWeather";
+import { aboutJPWeathers } from "../../weather/WeatherIF";
+import Hint from "./sub/Hint";
 type Props = {
     imgSrc: string
 }
@@ -31,7 +32,7 @@ export default function Top({ imgSrc }: Props) {
                 </FlexRatio>
                 <FlexRatio ratio={3}>
                     <FlexColumn>
-                        <h2 className={styles.h2}>明日の天気は？</h2>
+                        <h2 className={styles.h2}>東京の明日の天気は？</h2>
                         <div className={styles.selectCards}>
                             {
                                 aboutJPWeathers.map(((jpw, i) => {
@@ -42,7 +43,7 @@ export default function Top({ imgSrc }: Props) {
                         </div>
                         <FlexSpace marginDirection={"marginTop"}>
                             <div className={styles.hintCard}>
-                                {/* <Hint dayWeather={dayWeather} /> */}
+                                <Hint dayWeather={dayWeather} />
                             </div>
                         </FlexSpace>
                     </FlexColumn>

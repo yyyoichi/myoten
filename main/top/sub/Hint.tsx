@@ -1,7 +1,7 @@
 import { useState } from "react"
-import FadeIn from "../../components/anime/FadeIn"
-import Card from "../../components/atom/Card"
-import DayWeather from "../../weather/day/MeteoDW"
+import FadeIn from "../../../components/anime/FadeIn"
+import Card from "../../../components/atom/Card"
+import DayWeather from "../../../weather/day/MeteoDW"
 import styles from "../../styles/Card.module.css"
 
 type Props = {

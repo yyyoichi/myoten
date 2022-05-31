@@ -1,10 +1,11 @@
 import FadeIn from '../component/anime/FadeIn';
 import Top from '../main/Top';
-import getWeathreMap from '../logic/weatherMap';
+// import getWeathreMap from '../logic/weatherMap';
 import Wrapper from '../component/frame/Wrapper';
 import Head from 'next/head';
 import useWeather from '../weather/useWeather';
 import puppeteer from "puppeteer";
+
 
 
 type Props = {
@@ -36,7 +37,7 @@ export async function getStaticProps() {
   const img = await page.$('.weather-map-viewarea img')
   const src = await (await img?.getProperty('src'))
   const imgSrc = await src?.jsonValue()
-  // const imgSrc = await getWeathreMap();
+  console.log(imgSrc)
   return {
     props: {
       imgSrc

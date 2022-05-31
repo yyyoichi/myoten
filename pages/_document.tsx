@@ -9,7 +9,7 @@ export default function Document() {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
         <link href="https://fonts.googleapis.com/css2?family=Train+One&display=swap" rel="stylesheet" />
         <title>明天 -MYOTEN-</title>
-        <meta name="description" content="天気図から明日の天気を当てる暇アプリ。明日の東京の天気は...？" />
+        
 
       </Head>
       <body>

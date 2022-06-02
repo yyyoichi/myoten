@@ -14,15 +14,23 @@ export default class FormatDate {
         return this.date.getFullYear();
     }
     getMonth() {
-        return this.date.getMonth() + 1;
+        return this._toZero(2, this.date.getMonth() + 1);
     }
     getDate() {
-        return this.date.getDate();
+        return this._toZero(2, this.date.getDate());
     }
     getHours() {
-        return this.date.getHours();
+        return this._toZero(2, this.date.getHours());
     }
     getMinutes() {
-        return this.date.getMinutes();
+        return this._toZero(2,  this.date.getMinutes());
+    }
+    private _toZero(num: number, value: number) {
+        let zeros = "";
+        for(let i = 0; i < num; i++) {
+            zeros += "0"
+        }
+        const s = zeros + String(value)
+        return s.slice(num * -1)
     }
 }

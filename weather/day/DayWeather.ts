@@ -14,7 +14,7 @@ export default class DayWeather {
     }
     getDate() {
         if (!this.weather["date"]) return null;
-        return this.weather["date"].getRormatDate();
+        return this.weather["date"].getFormatDate();
     }
     getWeather() {
     }

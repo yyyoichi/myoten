@@ -4,13 +4,15 @@ import Wrapper from '../components/frame/Wrapper';
 import useWeather from '../weather/useWeather';
 import getWeatherMap from '../weather/getWeatherMap';
 import Head from 'next/head';
+import FormatDate from '../logic/FormatDate';
 
 
 
 type Props = {
-  imgSrc: string
+  imgSrc: string,
+  time: string
 }
-export default function Home({ imgSrc }: Props) {
+export default function Home({ imgSrc, time }: Props) {
   const { weather } = useWeather()
   return (
     <>
@@ -20,7 +22,7 @@ export default function Home({ imgSrc }: Props) {
       </Head>
       <Wrapper>
         <FadeIn toggle={!weather.isEmply()} display={true}>
-          <Top imgSrc={imgSrc} />
+          <Top imgSrc={imgSrc} time={time}/>
         </FadeIn>
       </Wrapper>
     </>
@@ -28,11 +30,13 @@ export default function Home({ imgSrc }: Props) {
 }
 
 export async function getStaticProps() {
-
+  const time = new FormatDate().getDetail()
+  console.log("re-build:",time);
   return {
     props: {
-      imgSrc: await getWeatherMap()
+      imgSrc: await getWeatherMap(),
+      time 
     },
-    revalidate: 60 * 30 // 30分ごと
+    revalidate: 5 // 30分ごと
   };
 }

@@ -30,7 +30,7 @@ export default class DayWeather {
     }
     getDate() {
         if (!this.wIndex["date"]) return null;
-        return this.wIndex["date"].getRormatDate();
+        return this.wIndex["date"].getFormatDate();
     }
     getWeather() {
         const n = this.wIndex["wcode"]

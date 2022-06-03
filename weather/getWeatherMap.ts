@@ -1,11 +1,12 @@
 import FormatDate from "../logic/FormatDate";
+import getStanderdData from "../logic/getStandardDate";
 
 export default async function getWeatherMap() {
   const d = new Date()
   const nowHours = d.getHours()
   d.setHours(nowHours - (nowHours % 3));
   d.setMinutes(0);
-  const fd = new FormatDate(d);
+  const fd = getStanderdData(d);
   const year = fd.getFullYear();
   const month = fd.getMonth();
   const date = fd.getDate();

@@ -5,10 +5,14 @@ export default class WeatherMapUrl {
   private d: Date
 
   constructor() {
-    const jisa = 9
     const d = new Date()
+    const timeZone = d.getTimezoneOffset()
+    let jisa = 0;
+    if(timeZone != 0) {
+      jisa = timeZone / 60
+    }
     const nowHours = d.getHours()
-    d.setHours(nowHours - (nowHours % 3) - jisa)
+    d.setHours(nowHours - (nowHours % 3) + jisa)
     d.setMinutes(0)
     //3時間刻みの標準時の00分に変更
     this.d = d

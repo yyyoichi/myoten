@@ -6,13 +6,8 @@ export default class WeatherMapUrl {
 
   constructor() {
     const d = new Date()
-    const timeZone = d.getTimezoneOffset()
-    let jisa = 0;
-    if(timeZone != 0) {
-      jisa = timeZone / 60
-    }
     const nowHours = d.getHours()
-    d.setHours(nowHours - (nowHours % 3) + jisa)
+    d.setHours(nowHours - (nowHours % 3))
     d.setMinutes(0)
     //3時間刻みの標準時の00分に変更
     this.d = d
@@ -30,7 +25,7 @@ export default class WeatherMapUrl {
     return url
   }
   private _createUrl() {
-    const fd = new FormatDate(this.d);
+    const fd = new FormatDate(this.d, 0);
     const year = fd.getFullYear();
     const month = fd.getMonth();
     const date = fd.getDate();

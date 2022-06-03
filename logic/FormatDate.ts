@@ -1,7 +1,16 @@
 export default class FormatDate {
     date: Date;
-    constructor(d: string | Date = new Date()) {
+    /**
+     * 
+     * @param d 
+     * @param timezoneOffset 取得したいタイムゾーンの時差（hours）
+     */
+    constructor(d: string | Date = new Date(), timezoneOffsetHours = 9) {
         if(typeof d === "string") d = new Date(d);
+        const tos = d.getTimezoneOffset()
+        const nowMitutes = d.getMinutes()
+        //一度、標準時に合わせてから時差分を足す
+        d.setMinutes(nowMitutes - tos + (timezoneOffsetHours * 60))
         this.date = d;
     }
     getFormatDate() {

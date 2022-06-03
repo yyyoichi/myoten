@@ -2,9 +2,10 @@ import FadeIn from '../components/anime/FadeIn';
 import Top from '../main/top/Top';
 import Wrapper from '../components/frame/Wrapper';
 import useWeather from '../weather/useWeather';
-import getWeatherMap from '../weather/getWeatherMap';
+import getWeatherMap from '../weather/WeatherMapUrl';
 import Head from 'next/head';
 import FormatDate from '../logic/FormatDate';
+import WeatherMapUrl from '../weather/WeatherMapUrl';
 
 
 
@@ -31,13 +32,14 @@ export default function Home({ imgSrc, time }: Props) {
 
 export async function getStaticProps() {
   const time = new FormatDate().getDetail()
-  const imgSrc = await getWeatherMap()
+  const wmu = new WeatherMapUrl()
+  const imgSrc = await wmu.get()
   console.log("re-build:",time)
-  console.log(imgSrc)
+  console.log("200: ", imgSrc)
   return {
     props: {
       imgSrc, time 
     },
-    revalidate: 5 // 30分ごと
+    revalidate: 600 // 10分ごと
   };
 }

@@ -1,3 +1,4 @@
+
 export default class FormatDate {
     date: Date;
     /**
@@ -6,11 +7,12 @@ export default class FormatDate {
      * @param timezoneOffset 取得したいタイムゾーンの時差（hours）
      */
     constructor(d: string | Date = new Date(), timezoneOffsetHours = 9) {
-        if(typeof d === "string") d = new Date(d);
+        if (typeof d === "string") d = new Date(d);
         const tos = d.getTimezoneOffset()
         const nowMitutes = d.getMinutes()
         //一度、標準時に合わせてから時差分を足す
-        d.setMinutes(nowMitutes - tos + (timezoneOffsetHours * 60))
+        d.setMinutes(nowMitutes + tos)
+        d.setHours(d.getHours() + timezoneOffsetHours)
         this.date = d;
     }
     getFormatDate() {
@@ -32,11 +34,11 @@ export default class FormatDate {
         return this._toZero(2, this.date.getHours());
     }
     getMinutes() {
-        return this._toZero(2,  this.date.getMinutes());
+        return this._toZero(2, this.date.getMinutes());
     }
     private _toZero(num: number, value: number) {
         let zeros = "";
-        for(let i = 0; i < num; i++) {
+        for (let i = 0; i < num; i++) {
             zeros += "0"
         }
         const s = zeros + String(value)

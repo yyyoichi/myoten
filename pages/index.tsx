@@ -31,11 +31,12 @@ export default function Home({ imgSrc, time }: Props) {
 
 export async function getStaticProps() {
   const time = new FormatDate().getDetail()
-  console.log("re-build:",time);
+  const imgSrc = await getWeatherMap()
+  console.log("re-build:",time)
+  console.log(imgSrc)
   return {
     props: {
-      imgSrc: await getWeatherMap(),
-      time 
+      imgSrc, time 
     },
     revalidate: 5 // 30分ごと
   };

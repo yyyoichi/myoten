@@ -2,15 +2,18 @@ import FadeIn from '../components/anime/FadeIn';
 import Top from '../main/top/Top';
 import Wrapper from '../components/frame/Wrapper';
 import useWeather from '../weather/useWeather';
-import getWeatherMap from '../weather/getWeatherMap';
+import getWeatherMap from '../weather/WeatherMapUrl';
 import Head from 'next/head';
+import FormatDate from '../logic/FormatDate';
+import WeatherMapUrl from '../weather/WeatherMapUrl';
 
 
 
 type Props = {
-  imgSrc: string
+  imgSrc: string,
+  time: string
 }
-export default function Home({ imgSrc }: Props) {
+export default function Home({ imgSrc, time }: Props) {
   const { weather } = useWeather()
   return (
     <>
@@ -20,7 +23,7 @@ export default function Home({ imgSrc }: Props) {
       </Head>
       <Wrapper>
         <FadeIn toggle={!weather.isEmply()} display={true}>
-          <Top imgSrc={imgSrc} />
+          <Top imgSrc={imgSrc} time={time}/>
         </FadeIn>
       </Wrapper>
     </>
@@ -28,11 +31,15 @@ export default function Home({ imgSrc }: Props) {
 }
 
 export async function getStaticProps() {
-
+  const time = new FormatDate().getDetail()
+  const wmu = new WeatherMapUrl()
+  const imgSrc = await wmu.get()
+  console.log("re-build:",time)
+  console.log("200: ", imgSrc)
   return {
     props: {
-      imgSrc: await getWeatherMap()
+      imgSrc, time 
     },
-    revalidate: 60 * 30 // 30分ごと
+    revalidate: 600 // 10分ごと
   };
 }

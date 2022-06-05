@@ -9,11 +9,13 @@ import ChoisCard from "./sub/ChoisCard";
 import useWeather from "../../weather/useWeather";
 import { aboutJPWeathers } from "../../weather/WeatherIF";
 import Hint from "./sub/Hint";
+import FormatDate from "../../logic/FormatDate";
 type Props = {
-    imgSrc: string
+    imgSrc: string,
+    time: string
 }
-export default function Top({ imgSrc }: Props) {
-    const {weather: dayWeather} = useWeather();
+export default function Top({ imgSrc, time }: Props) {
+    const { weather: dayWeather } = useWeather();
     return (
         <Main>
             <FlexRow>
@@ -28,6 +30,7 @@ export default function Top({ imgSrc }: Props) {
                                 rel="noopener noreferrer"
                                 className={styles.link}
                             > 気象庁HP</a></p>
+                        <p className={styles.link_p}>取得: {time}</p>
                     </div>
                 </FlexRatio>
                 <FlexRatio ratio={3}>

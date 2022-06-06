@@ -1,7 +1,6 @@
 import FormatDate from "../logic/FormatDate";
 
 export default class WeatherMapUrl {
-  private beforeMinutes: number = 0
   private d: Date
 
   constructor() {
@@ -18,7 +17,6 @@ export default class WeatherMapUrl {
     let response: Response;
     do {
       url = this._createUrl()
-      console.log("\t", this.beforeMinutes, url)
       response = await fetch(url)
       this._nextDate()
     } while (response.status !== 200)
@@ -37,8 +35,7 @@ export default class WeatherMapUrl {
     return url
   }
   private _nextDate() {
-    this.beforeMinutes += 3
     const nowHours = this.d.getHours()
-    this.d.setHours(nowHours - this.beforeMinutes)
+    this.d.setHours(nowHours - 3)
   }
 }

@@ -41,11 +41,13 @@
     color: aliceblue;
 }
 .footTitle {
+    text-align: center;
     padding: 10px 0;
     letter-spacing: 4px;
 }
 
 .footSub {
+    text-align: center;
     font-size: 10px;
     letter-spacing: 2px;
 }

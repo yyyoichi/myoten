@@ -4,6 +4,7 @@ export interface CodeAdapter {
     // code: number | string;
     // aboutJPWeather: AboutJPWeather[];
     getAboutJPWeather: () => AboutJPWeather[];
+    getDetailWeather: () => string;
 }
 
 export default abstract class CodeAdp {

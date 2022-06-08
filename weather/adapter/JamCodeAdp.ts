@@ -132,10 +132,16 @@ export default class JamCodeAdp extends CodeAdp implements CodeAdapter {
         }
         this.code = String(code)
     }
-    protected _getAboutJPWeather(): AboutJPWeather[] {
+
+    public getDetailWeather(): string {
         const code = this.code
-        if(!code) return []
-        const jpDetail = JamCodeAdp.MAP[code][3];
+        if(!code) return "";
+        return JamCodeAdp.MAP[code][3];
+    }
+    
+    protected _getAboutJPWeather(): AboutJPWeather[] {
+        const jpDetail = this.getDetailWeather();
+        if(!jpDetail) return [];
         const tenki: AboutJPWeather[] = ["晴", "曇", "雨", "雪", "霧"]
         const weather = tenki.reduce((o: { w: AboutJPWeather, i: number }[], w) => {
             const i = jpDetail.indexOf(w);

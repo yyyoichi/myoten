@@ -10,6 +10,7 @@ import useWeather from "../../weather/useWeather";
 import { aboutJPWeathers } from "../../weather/WeatherIF";
 import Hint from "./sub/Hint";
 import FormatDate from "../../logic/FormatDate";
+import Image from "next/image";
 type Props = {
     imgSrc: string,
     time: string
@@ -21,8 +22,11 @@ export default function Top({ imgSrc, time }: Props) {
             <FlexRow>
                 <FlexRatio ratio={4}>
                     <div className={styles.imgBox}>
-                        <img src={imgSrc}
+                        <Image src={imgSrc}
                             className={styles.img}
+                            alt="天気図"
+                            width={550}
+                            height={550}
                         />
                         <p className={styles.link_p}>出典:
                             <a href="https://www.jma.go.jp/bosai/weather_map/"

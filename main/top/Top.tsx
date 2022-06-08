@@ -7,16 +7,40 @@ import FlexRatio from "../../components/atom/FlexRatio";
 import styles from "../../styles/top/Top.module.css";
 import ChoisCard from "./sub/ChoisCard";
 import useWeather from "../../weather/useWeather";
-import { aboutJPWeathers } from "../../weather/WeatherIF";
+import { AboutJPWeather, aboutJPWeathers } from "../../weather/WeatherIF";
 import Hint from "./sub/Hint";
-import FormatDate from "../../logic/FormatDate";
 import Image from "next/image";
+import { useState } from "react";
 type Props = {
     imgSrc: string,
     time: string
 }
+type CardState = {
+    isAnswer: boolean,
+    isOpen: boolean
+}
 export default function Top({ imgSrc, time }: Props) {
     const { weather: dayWeather } = useWeather();
+    const nowWeathers = dayWeather.getAboutJPWeather()
+    const [cardStates, setCardStates] = useState(aboutJPWeathers.reduce((m, jpw) => {
+        const isAnswer = nowWeathers.includes(jpw)
+        m.set(jpw, {isAnswer, isOpen: false})
+        return m
+    }, new Map<AboutJPWeather, CardState>()));
+    const onCardClick = (clickJpw: AboutJPWeather) => {
+        setCardStates(old => {
+            const newStates = aboutJPWeathers.reduce((m, jpw) => {
+                const isAnswer = nowWeathers.includes(jpw)
+                const isClickCard = clickJpw === jpw;
+                //@ts-ignore
+                const isOpen: boolean = isClickCard ? !old.get(jpw)["isOpen"] :false;
+                m.set(jpw, {isAnswer, isOpen})
+                return m
+            }, new Map<AboutJPWeather, CardState>())
+            return newStates
+        })
+        
+    }
     return (
         <Main>
             <FlexRow>

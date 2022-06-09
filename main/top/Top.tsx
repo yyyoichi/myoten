@@ -10,7 +10,7 @@ import useWeather from "../../weather/useWeather";
 import { AboutJPWeather, aboutJPWeathers } from "../../weather/WeatherIF";
 import Hint from "./sub/Hint";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 type Props = {
     imgSrc: string,
     time: string
@@ -34,7 +34,7 @@ export default function Top({ imgSrc, time }: Props) {
     // カードの表裏あらわすデータ。
     const [cardStates, setCardStates] = useState(aboutJPWeathers.reduce((m, jpw) => {
         const isAnswer = nowWeathers.includes(jpw)
-        return { ...m, jpw: { isAnswer, isOpen: false } }
+        return { ...m, [jpw]: { isAnswer, isOpen: false } }
     }, {}) as CardStates)
 
     /**
@@ -90,7 +90,12 @@ export default function Top({ imgSrc, time }: Props) {
                         <div className={styles.selectCards}>
                             {
                                 aboutJPWeathers.map(((jpw, i) => {
-                                    return <ChoisCard key={`${jpw}_${i}`} cardName={jpw} nowWeather={dayWeather.getAboutJPWeather()} />
+                                    const props = {
+                                        cardName: jpw,
+                                        cardState: cardStates[jpw],
+                                        onCardClick,
+                                    }
+                                    return <ChoisCard key={`${jpw}_${i}`} {...props} />
                                 }))
 
                             }

@@ -23,7 +23,10 @@ export default function Home({ imgSrc, time }: Props) {
       </Head>
       <Wrapper>
         <FadeIn toggle={!weather.isEmply()} display={true}>
-          <Top imgSrc={imgSrc} time={time}/>
+          {
+            weather.isEmply() ? <></> :<Top imgSrc={imgSrc} time={time}/>
+
+          }
         </FadeIn>
       </Wrapper>
     </>

@@ -5,25 +5,27 @@ import SuccessCard from "./SuccessCard"
 
 import styles from "../../../styles/Card.module.css"
 import { AboutJPWeather } from "../../../weather/WeatherIF"
+import { CardState } from "../Top"
 
 type Props = {
-    nowWeather: AboutJPWeather[],
-    cardName: AboutJPWeather,
+    cardName: AboutJPWeather;
+    cardState: CardState;
+    onCardClick: (clickJpw: AboutJPWeather) => void;
 }
-export default function ChoisCard({ nowWeather, cardName }: Props) {
+export default function ChoisCard({ cardName, cardState, onCardClick }: Props) {
     const [isOpen, setOpen] = useState<boolean>(true);
     const onClick = () => {
-        setOpen((o) => !o);
+        // setOpen((o) => !o);
     }
     return (
         <>
-            <FadeIn toggle={!isOpen} display={true}>
-                <div onClick={onClick}>
-                    <SuccessCard isSuccess={nowWeather.includes(cardName)} cardName={cardName} />
+            <FadeIn toggle={!cardState["isOpen"]} display={true}>
+                <div onClick={() => onCardClick(cardName)}>
+                    <SuccessCard isSuccess={cardState["isAnswer"]} cardName={cardName} />
                 </div>
             </FadeIn>
-            <FadeIn toggle={isOpen} display={true}>
-                <div onClick={onClick}>
+            <FadeIn toggle={cardState["isOpen"]} display={true}>
+                <div onClick={() => onCardClick(cardName)}>
                     <Card>
                         <div className={styles.title}>
                             {cardName}

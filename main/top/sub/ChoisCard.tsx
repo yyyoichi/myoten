@@ -8,9 +8,9 @@ import { AboutJPWeather } from "../../../weather/WeatherIF"
 
 type Props = {
     nowWeather: AboutJPWeather[],
-    selectionW: AboutJPWeather,
+    cardName: AboutJPWeather,
 }
-export default function ChoisCard({ nowWeather, selectionW }: Props) {
+export default function ChoisCard({ nowWeather, cardName }: Props) {
     const [isOpen, setOpen] = useState<boolean>(true);
     const onClick = () => {
         setOpen((o) => !o);
@@ -19,14 +19,14 @@ export default function ChoisCard({ nowWeather, selectionW }: Props) {
         <>
             <FadeIn toggle={!isOpen} display={true}>
                 <div onClick={onClick}>
-                    <SuccessCard isSuccess={nowWeather.includes(selectionW)} selectWeather={selectionW} />
+                    <SuccessCard isSuccess={nowWeather.includes(cardName)} cardName={cardName} />
                 </div>
             </FadeIn>
             <FadeIn toggle={isOpen} display={true}>
                 <div onClick={onClick}>
                     <Card>
                         <div className={styles.title}>
-                            {selectionW}
+                            {cardName}
                         </div>
                     </Card>
                 </div>

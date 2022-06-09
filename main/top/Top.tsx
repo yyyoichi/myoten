@@ -15,11 +15,11 @@ type Props = {
     imgSrc: string,
     time: string
 }
-type CardState = {
+export type CardState = {
     isAnswer: boolean,
     isOpen: boolean
 }
-type CardStates = {
+export type CardStates = {
     [key in AboutJPWeather]: CardState;
 };
 type UserSelectCard = {
@@ -90,7 +90,7 @@ export default function Top({ imgSrc, time }: Props) {
                         <div className={styles.selectCards}>
                             {
                                 aboutJPWeathers.map(((jpw, i) => {
-                                    return <ChoisCard key={`${jpw}_${i}`} selectionW={jpw} nowWeather={dayWeather.getAboutJPWeather()} />
+                                    return <ChoisCard key={`${jpw}_${i}`} cardName={jpw} nowWeather={dayWeather.getAboutJPWeather()} />
                                 }))
 
                             }

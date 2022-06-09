@@ -19,12 +19,12 @@ export default function ChoisCard({ cardName, cardState, onCardClick }: Props) {
     }
     return (
         <>
-            <FadeIn toggle={!cardState["isOpen"]} display={true}>
+            <FadeIn toggle={cardState["isOpen"]} display={true}>
                 <div onClick={() => onCardClick(cardName)}>
                     <SuccessCard isSuccess={cardState["isAnswer"]} cardName={cardName} />
                 </div>
             </FadeIn>
-            <FadeIn toggle={cardState["isOpen"]} display={true}>
+            <FadeIn toggle={!cardState["isOpen"]} display={true}>
                 <div onClick={() => onCardClick(cardName)}>
                     <Card>
                         <div className={styles.title}>

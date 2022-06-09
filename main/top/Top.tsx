@@ -52,7 +52,8 @@ export default function Top({ imgSrc, time }: Props) {
                 //クリックされたカードは反転。
                 //クリック以外のカードは裏面。
                 const isOpen = isCurrentCardOpened ? true : isClickedCard ? !old[jpw]["isOpen"] : false;
-                return { ...m, jpw: { isAnswer, isOpen } }
+                console.log(jpw, isOpen)
+                return { ...m, [jpw]: { isAnswer, isOpen } }
             }, {}) as CardStates
             return newStates
         })

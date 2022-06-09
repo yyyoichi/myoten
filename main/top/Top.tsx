@@ -10,7 +10,7 @@ import { AboutJPWeather, aboutJPWeathers } from "../../weather/WeatherIF";
 import Hint from "./sub/Hint";
 import Image from "next/image";
 import {  useState } from "react";
-import { useWeather } from "../../weather/useWeather";
+import { useWeather } from "../../weather/useWeatherContext";
 type Props = {
     imgSrc: string,
     time: string
@@ -27,6 +27,7 @@ type UserSelectCard = {
     "all": Set<AboutJPWeather>,
 }
 export default function Top({ imgSrc, time }: Props) {
+    console.log("top")
     const { weather: dayWeather } = useWeather()
     const nowWeathers = dayWeather.getAboutJPWeather()
     // ユーザのカード選択状況のデータ。クリックされた正解カードとクリックされたすべてのカードを記憶する

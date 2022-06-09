@@ -5,7 +5,7 @@ import React, { useEffect } from 'react'
 import GoogleAnalytics from "../components/frame/GoogleAnalytics"
 import { existsGaId, pageview } from '../lib/gtag';
 import { AppProps } from 'next/app';
-import useWeather, { WeatherProvider } from '../weather/useWeather';
+import { useWeatherContext, WeatherProvider } from '../weather/useWeatherContext';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [router.events])
 
 
-  const weather = useWeather()
+  const weather = useWeatherContext()
   const Provider = WeatherProvider
   return (
     <>

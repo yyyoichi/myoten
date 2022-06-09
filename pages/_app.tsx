@@ -5,10 +5,10 @@ import React, { useEffect } from 'react'
 import GoogleAnalytics from "../components/frame/GoogleAnalytics"
 import { existsGaId, pageview } from '../lib/gtag';
 import { AppProps } from 'next/app';
+import useWeather, { WeatherProvider } from '../weather/useWeather';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
-
   useEffect(() => {
     if (!existsGaId) {
       return
@@ -24,10 +24,16 @@ function MyApp({ Component, pageProps }: AppProps) {
       router.events.off('routeChangeComplete', handleRouteChange)
     }
   }, [router.events])
+
+
+  const weather = useWeather()
+  const Provider = WeatherProvider
   return (
     <>
       <GoogleAnalytics />
-      <Component {...pageProps} />
+      <Provider value={weather}>
+        <Component {...pageProps} />
+      </Provider>
     </>
   )
 }

@@ -6,11 +6,11 @@ import FlexRatio from "../../components/atom/FlexRatio";
 
 import styles from "../../styles/top/Top.module.css";
 import ChoisCard from "./sub/ChoisCard";
-import useWeather from "../../weather/useWeather";
 import { AboutJPWeather, aboutJPWeathers } from "../../weather/WeatherIF";
 import Hint from "./sub/Hint";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
+import { useWeather } from "../../weather/useWeather";
 type Props = {
     imgSrc: string,
     time: string

@@ -22,13 +22,25 @@ type CardState = {
 type CardStates = {
     [key in AboutJPWeather]: CardState;
 };
+type UserSelectCard = {
+    "currect": Set<AboutJPWeather>,
+    "all": Set<AboutJPWeather>,
+}
 export default function Top({ imgSrc, time }: Props) {
-    const { weather: dayWeather } = useWeather();
+    const { weather: dayWeather } = useWeather()
     const nowWeathers = dayWeather.getAboutJPWeather()
+    // ユーザのカード選択状況のデータ。クリックされた正解カードとクリックされたすべてのカードを記憶する
+    const [userSelectCards, setUserSelectCards] = useState<UserSelectCard>({ "currect": new Set(), "all": new Set() })
+    // カードの表裏あらわすデータ。
     const [cardStates, setCardStates] = useState(aboutJPWeathers.reduce((m, jpw) => {
         const isAnswer = nowWeathers.includes(jpw)
         return { ...m, jpw: { isAnswer, isOpen: false } }
-    }, {}) as CardStates);
+    }, {}) as CardStates)
+
+    /**
+     * @description カードがクリックされたときに起動
+     * @param clickJpw クリックされたカードの日本語天気
+     */
     const onCardClick = (clickJpw: AboutJPWeather) => {
         setCardStates(old => {
             const newStates = aboutJPWeathers.reduce((m, jpw) => {
@@ -42,6 +54,14 @@ export default function Top({ imgSrc, time }: Props) {
                 return { ...m, jpw: { isAnswer, isOpen } }
             }, {}) as CardStates
             return newStates
+        })
+        setUserSelectCards(old => {
+            old["all"].add(clickJpw)
+            //クリックされたカードが正解カード
+            if(nowWeathers.includes(clickJpw)) {
+                old["currect"].add(clickJpw)
+            }
+            return old
         })
     }
     return (

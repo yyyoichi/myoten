@@ -19,27 +19,30 @@ type CardState = {
     isAnswer: boolean,
     isOpen: boolean
 }
+type CardStates = {
+    [key in AboutJPWeather]: CardState;
+};
 export default function Top({ imgSrc, time }: Props) {
     const { weather: dayWeather } = useWeather();
     const nowWeathers = dayWeather.getAboutJPWeather()
     const [cardStates, setCardStates] = useState(aboutJPWeathers.reduce((m, jpw) => {
         const isAnswer = nowWeathers.includes(jpw)
-        m.set(jpw, {isAnswer, isOpen: false})
-        return m
-    }, new Map<AboutJPWeather, CardState>()));
+        return { ...m, jpw: { isAnswer, isOpen: false } }
+    }, {}) as CardStates);
     const onCardClick = (clickJpw: AboutJPWeather) => {
         setCardStates(old => {
             const newStates = aboutJPWeathers.reduce((m, jpw) => {
                 const isAnswer = nowWeathers.includes(jpw)
-                const isClickCard = clickJpw === jpw;
-                //@ts-ignore
-                const isOpen: boolean = isClickCard ? !old.get(jpw)["isOpen"] :false;
-                m.set(jpw, {isAnswer, isOpen})
-                return m
-            }, new Map<AboutJPWeather, CardState>())
+                const isClickedCard = clickJpw === jpw
+                const isCurrentCardOpened = !isClickedCard && old[jpw]["isOpen"] && old[jpw]["isAnswer"]
+                //クリックされていない開き済みの正解カードはそのまま。
+                //クリックされたカードは反転。
+                //クリック以外のカードは裏面。
+                const isOpen = isCurrentCardOpened ? true : isClickedCard ? !old[jpw]["isOpen"] : false;
+                return { ...m, jpw: { isAnswer, isOpen } }
+            }, {}) as CardStates
             return newStates
         })
-        
     }
     return (
         <Main>

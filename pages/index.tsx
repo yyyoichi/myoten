@@ -3,7 +3,7 @@ import Top from '../main/top/Top';
 import Wrapper from '../components/frame/Wrapper';
 import getWeatherMap from '../weather/WeatherMapUrl';
 import Head from 'next/head';
-import FormatDate from '../logic/FormatDate';
+import FormatDate from '../lib/FormatDate';
 import WeatherMapUrl from '../weather/WeatherMapUrl';
 import { useWeather } from '../weather/useWeatherContext';
 

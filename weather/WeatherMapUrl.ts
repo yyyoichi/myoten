@@ -1,4 +1,4 @@
-import FormatDate from "../logic/FormatDate";
+import FormatDate from "../lib/FormatDate";
 
 export default class WeatherMapUrl {
   private d: Date

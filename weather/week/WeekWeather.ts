@@ -1,4 +1,4 @@
-import FormatDate from "../../logic/FormatDate"
+import FormatDate from "../../lib/FormatDate"
 import JamCodeAdp from "../adapter/JamCodeAdp";
 import DayWeather from "../day/DayWeather";
 import { WeatherKey } from "../WeatherIF";

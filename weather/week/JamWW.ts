@@ -1,5 +1,5 @@
 import WeekWeather from "./WeekWeather";
-import FormatDate from "../../logic/FormatDate";
+import FormatDate from "../../lib/FormatDate";
 import JamCodeAdp from "../adapter/JamCodeAdp";
 import { WeatherKey } from "../WeatherIF";
 

@@ -1,14 +1,14 @@
 import { Dispatch, SetStateAction, useCallback, useState } from "react"
 
 type PopupControl = "show" | "set" | "end"
-export type PopupWindowState = readonly [PopupControl,
+type PopupWindowState = readonly [PopupControl,
     Dispatch<SetStateAction<PopupControl>>, {
         readonly show: () => void;
         readonly end: () => void;
         readonly reset: () => void;
     }]
 // type UsePopupWindow = (defaultValue: PopupControl) => PopupWindowState
-export const usePopupWindow = (defaultValue: PopupControl = "set"): PopupWindowState => {
+const usePopupWindow = (defaultValue: PopupControl = "set"): PopupWindowState => {
     const [popupControl, setPopupControl] = useState<PopupControl>(defaultValue)
     const show = useCallback(() => {
         setPopupControl("show")
@@ -21,3 +21,5 @@ export const usePopupWindow = (defaultValue: PopupControl = "set"): PopupWindowS
     }, [])
     return [popupControl, setPopupControl, { show, end, reset }] as const
 }
+
+export default usePopupWindow

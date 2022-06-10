@@ -3,10 +3,10 @@ import { PopupWindowState, usePopupWindow } from "../../lib/popup/usePopupWindow
 
 type Props = {
     children: ReactNode,
-    popupWindowState?: PopupWindowState
+    popupWindowState: PopupWindowState
 }
 function PopupWindow(props: Props) {
-    const [popupControl, setPopupControl, funcs] = props["popupWindowState"] || usePopupWindow("set")
+    const [popupControl, setPopupControl, funcs] = props["popupWindowState"]
     // console.log(popupControl, setPopupControl)
     return (
         <div>

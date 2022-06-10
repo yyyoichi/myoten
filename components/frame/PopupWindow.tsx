@@ -1,18 +1,22 @@
 import { ReactNode } from "react"
+import FadeIn from "../anime/FadeIn"
 import OverWrap from "../atom/OverWrap"
 
 type Props = {
     children: ReactNode,
-    onClick: () => void
+    onClick: () => void,
+    show: boolean
 }
 function PopupWindow(props: Props) {
     // console.log(popupControl, setPopupControl)
     return (
-        <OverWrap>
-            <div onClick={props["onClick"]}>
-                {props.children}
-            </div>
-        </OverWrap>
+        <FadeIn toggle={props["show"]} display={!props["show"]} duration={500}>
+            <OverWrap>
+                <div onClick={props["onClick"]}>
+                    {props.children}
+                </div>
+            </OverWrap>
+        </FadeIn>
     )
 }
 

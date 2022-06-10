@@ -5,7 +5,7 @@ type Props = {
     // styles: React.CSSProperties,
     children: React.ReactNode,
     display: boolean,
-    duration?: 1000
+    duration?: number
 }
 export default function FadeIn(props: Props) {
     let s = {

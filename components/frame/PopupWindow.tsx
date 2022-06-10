@@ -12,7 +12,7 @@ function PopupWindow(props: Props) {
     return (
         <FadeIn toggle={props["show"]} display={!props["show"]} duration={500}>
             <OverWrap>
-                <div onClick={props["onClick"]}>
+                <div style={{height: "100%"}} onClick={props["onClick"]}>
                     {props.children}
                 </div>
             </OverWrap>

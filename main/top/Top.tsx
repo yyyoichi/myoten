@@ -9,8 +9,10 @@ import ChoisCard from "./sub/ChoisCard";
 import { AboutJPWeather, aboutJPWeathers } from "../../weather/WeatherIF";
 import Hint from "./sub/Hint";
 import Image from "next/image";
-import {  useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useWeather } from "../../weather/useWeatherContext";
+import PopupWindow from "../../components/frame/PopupWindow";
+import usePopupWindow from "../../lib/popup/usePopupWindow";
 type Props = {
     imgSrc: string,
     time: string
@@ -38,6 +40,8 @@ export default function Top({ imgSrc, time }: Props) {
         return { ...m, [jpw]: { isAnswer, isOpen: false } }
     }, {}) as CardStates)
 
+    const [popupControl, setPopupControl] = usePopupWindow()
+
     /**
      * @description カードがクリックされたときに起動
      * @param clickJpw クリックされたカードの日本語天気
@@ -52,7 +56,6 @@ export default function Top({ imgSrc, time }: Props) {
                 //クリックされたカードは反転。
                 //クリック以外のカードは裏面。
                 const isOpen = isCurrentCardOpened ? true : isClickedCard ? !old[jpw]["isOpen"] : false;
-                console.log(jpw, isOpen)
                 return { ...m, [jpw]: { isAnswer, isOpen } }
             }, {}) as CardStates
             return newStates
@@ -60,14 +63,28 @@ export default function Top({ imgSrc, time }: Props) {
         setUserSelectCards(old => {
             old["all"].add(clickJpw)
             //クリックされたカードが正解カード
-            if(nowWeathers.includes(clickJpw)) {
+            if (nowWeathers.includes(clickJpw)) {
                 old["currect"].add(clickJpw)
+                //正当数がカンスト
+                console.log("answer.length", nowWeathers.length === old["currect"].size)
+                if (nowWeathers.length === old["currect"].size) {
+                    //popupWindowを一度だけ表示する
+                    setPopupControl(oldCtr => {
+                        const ctr = oldCtr === "end" ? "end" : "show"
+                        console.log(ctr)
+                        return ctr
+                    })
+                }
             }
             return old
         })
     }
     return (
         <Main>
+            <PopupWindow onClick={() => setPopupControl("end")} show={popupControl === "show"}>
+                {"popup"}
+            </PopupWindow>
+            : <></>
             <FlexRow>
                 <FlexRatio ratio={4}>
                     <div className={styles.imgBox}>

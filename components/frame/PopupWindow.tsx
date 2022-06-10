@@ -1,19 +1,18 @@
 import { ReactNode } from "react"
-import { PopupWindowState } from "../../lib/popup/usePopupWindow"
+import OverWrap from "../atom/OverWrap"
 
 type Props = {
     children: ReactNode,
-    popupWindowState: PopupWindowState
+    onClick: () => void
 }
 function PopupWindow(props: Props) {
-    const [popupControl, setPopupControl, funcs] = props["popupWindowState"]
     // console.log(popupControl, setPopupControl)
     return (
-        <div>
-            <div>
+        <OverWrap>
+            <div onClick={props["onClick"]}>
                 {props.children}
             </div>
-        </div>
+        </OverWrap>
     )
 }
 

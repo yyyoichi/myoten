@@ -1,5 +1,5 @@
 import { ReactNode } from "react"
-import { PopupWindowState, usePopupWindow } from "../../lib/popup/usePopupWindow"
+import { PopupWindowState } from "../../lib/popup/usePopupWindow"
 
 type Props = {
     children: ReactNode,

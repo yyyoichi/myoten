@@ -8,7 +8,7 @@ export type PopupWindowState = readonly [PopupControl,
         readonly reset: () => void;
     }]
 // type UsePopupWindow = (defaultValue: PopupControl) => PopupWindowState
-export const usePopupWindow = useCallback((defaultValue: PopupControl = "set"): PopupWindowState => {
+export const usePopupWindow = (defaultValue: PopupControl = "set"): PopupWindowState => {
     const [popupControl, setPopupControl] = useState<PopupControl>(defaultValue)
     const show = useCallback(() => {
         setPopupControl("show")
@@ -20,4 +20,4 @@ export const usePopupWindow = useCallback((defaultValue: PopupControl = "set"): 
         setPopupControl("set")
     }, [])
     return [popupControl, setPopupControl, { show, end, reset }] as const
-}, [])
+}

@@ -6,17 +6,66 @@ import FlexRatio from "../../components/atom/FlexRatio";
 
 import styles from "../../styles/top/Top.module.css";
 import ChoisCard from "./sub/ChoisCard";
-import useWeather from "../../weather/useWeather";
-import { aboutJPWeathers } from "../../weather/WeatherIF";
+import { AboutJPWeather, aboutJPWeathers } from "../../weather/WeatherIF";
 import Hint from "./sub/Hint";
-import FormatDate from "../../logic/FormatDate";
 import Image from "next/image";
+import {  useState } from "react";
+import { useWeather } from "../../weather/useWeatherContext";
 type Props = {
     imgSrc: string,
     time: string
 }
+export type CardState = {
+    isAnswer: boolean,
+    isOpen: boolean
+}
+export type CardStates = {
+    [key in AboutJPWeather]: CardState;
+};
+type UserSelectCard = {
+    "currect": Set<AboutJPWeather>,
+    "all": Set<AboutJPWeather>,
+}
 export default function Top({ imgSrc, time }: Props) {
-    const { weather: dayWeather } = useWeather();
+    console.log("top")
+    const { weather: dayWeather } = useWeather()
+    const nowWeathers = dayWeather.getAboutJPWeather()
+    // ユーザのカード選択状況のデータ。クリックされた正解カードとクリックされたすべてのカードを記憶する
+    const [userSelectCards, setUserSelectCards] = useState<UserSelectCard>({ "currect": new Set(), "all": new Set() })
+    // カードの表裏あらわすデータ。
+    const [cardStates, setCardStates] = useState(aboutJPWeathers.reduce((m, jpw) => {
+        const isAnswer = nowWeathers.includes(jpw)
+        return { ...m, [jpw]: { isAnswer, isOpen: false } }
+    }, {}) as CardStates)
+
+    /**
+     * @description カードがクリックされたときに起動
+     * @param clickJpw クリックされたカードの日本語天気
+     */
+    const onCardClick = (clickJpw: AboutJPWeather) => {
+        setCardStates(old => {
+            const newStates = aboutJPWeathers.reduce((m, jpw) => {
+                const isAnswer = nowWeathers.includes(jpw)
+                const isClickedCard = clickJpw === jpw
+                const isCurrentCardOpened = !isClickedCard && old[jpw]["isOpen"] && old[jpw]["isAnswer"]
+                //クリックされていない開き済みの正解カードはそのまま。
+                //クリックされたカードは反転。
+                //クリック以外のカードは裏面。
+                const isOpen = isCurrentCardOpened ? true : isClickedCard ? !old[jpw]["isOpen"] : false;
+                console.log(jpw, isOpen)
+                return { ...m, [jpw]: { isAnswer, isOpen } }
+            }, {}) as CardStates
+            return newStates
+        })
+        setUserSelectCards(old => {
+            old["all"].add(clickJpw)
+            //クリックされたカードが正解カード
+            if(nowWeathers.includes(clickJpw)) {
+                old["currect"].add(clickJpw)
+            }
+            return old
+        })
+    }
     return (
         <Main>
             <FlexRow>
@@ -43,7 +92,12 @@ export default function Top({ imgSrc, time }: Props) {
                         <div className={styles.selectCards}>
                             {
                                 aboutJPWeathers.map(((jpw, i) => {
-                                    return <ChoisCard key={`${jpw}_${i}`} selectionW={jpw} nowWeather={dayWeather.getAboutJPWeather()} />
+                                    const props = {
+                                        cardName: jpw,
+                                        cardState: cardStates[jpw],
+                                        onCardClick,
+                                    }
+                                    return <ChoisCard key={`${jpw}_${i}`} {...props} />
                                 }))
 
                             }

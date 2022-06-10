@@ -4,9 +4,9 @@ import { AboutJPWeather } from "../../../weather/WeatherIF";
 
 type Props = {
     isSuccess: boolean,
-    selectWeather: AboutJPWeather
+    cardName: AboutJPWeather
 }
-export default function SuccessCard({ isSuccess, selectWeather }: Props) {
+export default function SuccessCard({ isSuccess, cardName }: Props) {
     const text = isSuccess ? "正解" : "残念"
     const color = isSuccess ? /*"blue"*/"#2525d7" : /*"red"*/"#dd1d1d"
     return (
@@ -14,7 +14,7 @@ export default function SuccessCard({ isSuccess, selectWeather }: Props) {
             <div className={styles.title}>
                 {text}
             </div>
-            <div className={styles.sub}>{selectWeather}</div>
+            <div className={styles.sub}>{cardName}</div>
         </Card>
     )
 }

@@ -79,12 +79,34 @@ export default function Top({ imgSrc, time }: Props) {
             return old
         })
     }
+    const getResultMsg = useCallback(() => {
+        const ratio = userSelectCards["currect"].size / userSelectCards["all"].size
+        if (ratio > 0.9) {
+            return "正解！素晴らしい！"
+        }
+        if (ratio > 0.5) {
+            return "正解！"
+        }
+        return "タップが気持ち良かった？"
+    }, [userSelectCards])
     return (
         <Main>
             <PopupWindow onClick={() => setPopupControl("end")} show={popupControl === "show"}>
-                {"popup"}
+                <div className={styles.popupWrapper}>
+                    <div>明日の天気は...</div>
+                    <div>「<span className={styles.answer}>{dayWeather.getDetailWeather()}</span>」です</div>
+                    <div className={styles.popupImgBox}>
+                        <Image src={imgSrc}
+                            alt="天気図"
+                            width={250}
+                            height={250}
+                        />
+                    </div>
+                    <div className={styles.resultMsg}>
+                        {getResultMsg()}
+                    </div>
+                </div>
             </PopupWindow>
-            : <></>
             <FlexRow>
                 <FlexRatio ratio={4}>
                     <div className={styles.imgBox}>

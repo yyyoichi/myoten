@@ -20,6 +20,9 @@ export default class DayWeather {
     }
     getAboutWeather() {
     }
+    getDetailWeather() {
+        return this.weather["wcode"].getDetailWeather()
+    }
     getAboutJPWeather() {
         return this.weather["wcode"].getAboutJPWeather();
     }

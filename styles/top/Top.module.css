@@ -33,6 +33,8 @@
     margin-top: 20px;
 }
 .popupWrapper {
+    position: relative;
+    top: 20vh;
     width: 30vw;
     padding: 15px 10px;
     margin: 0 auto;

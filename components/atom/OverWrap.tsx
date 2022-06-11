@@ -1,6 +1,11 @@
 import { ReactNode } from "react";
 
-export default function OverWrap({ children }: { children: ReactNode }) {
+type Props = {
+    children: ReactNode,
+    backgroundColor?: string
+}
+
+export default function OverWrap({ children, backgroundColor }: Props) {
     return <div style={{
         position: "fixed",
         top: "0",
@@ -8,7 +13,7 @@ export default function OverWrap({ children }: { children: ReactNode }) {
         zIndex: "100",
         height: "110vmax",
         width: "100vw",
-        backgroundColor: "#a9a9a9cc"
+        backgroundColor: backgroundColor || "#a9a9a9cc"
     }}>
         {children}
     </div>

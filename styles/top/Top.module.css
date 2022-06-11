@@ -32,3 +32,48 @@
 .hintCard {
     margin-top: 20px;
 }
+.showAnsText {
+    text-align: center;
+    color: #5252cf;
+}
+.popupWrapper {
+    position: relative;
+    top: 20vh;
+    width: 30vw;
+    padding: 15px 10px;
+    margin: 0 auto;
+    background-color: #f0f8ff;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+@media screen and (max-width: 768px) {
+    .popupWrapper {
+        width: 80vw;
+    }
+}
+
+.popupImgBox {
+    padding: 10px 0;
+}
+@media screen and (max-width: 768px) {
+    .popupImgBox {
+        width: 70vw;
+    }
+}
+
+.answer {
+    font-size: 30px;
+    color: limegreen;
+    font-weight: bolder;
+}
+
+.resultMsg {
+    position: relative;
+    bottom: 0;
+    font-size: small;
+    text-align: right;
+}

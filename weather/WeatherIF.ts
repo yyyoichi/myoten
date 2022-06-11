@@ -1,4 +1,4 @@
-import FormatDate from "../logic/FormatDate"
+import FormatDate from "../lib/FormatDate"
 import { CodeAdapter } from "./adapter/CodeAdapter"
 
 export type AboutJPWeather = "晴" | "曇" | "雨" | "雪" | "霧"

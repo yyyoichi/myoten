@@ -1,0 +1,10 @@
+.tapScreen {
+    position: fixed;
+    height: 110vh;
+    width: 100vw;
+}
+
+.containerWrapper {
+    position: relative;
+    top:  20vh;
+}

@@ -143,9 +143,14 @@ export default function Top({ imgSrc, time }: Props) {
                         </div>
                         <FlexSpace marginDirection={"marginTop"}>
                             <div className={styles.hintCard}>
-                                <Hint dayWeather={dayWeather} />
+                                {
+                                    popupControl === "set" ?
+                                    <Hint dayWeather={dayWeather} />
+                                    :<div className={styles.showAnsText} onClick={() => setPopupControl("show")}>答えを見る</div>
+                                    }
                             </div>
                         </FlexSpace>
+
                     </FlexColumn>
                 </FlexRatio>
             </FlexRow>

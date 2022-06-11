@@ -32,6 +32,10 @@
 .hintCard {
     margin-top: 20px;
 }
+.showAnsText {
+    text-align: center;
+    color: #5252cf;
+}
 .popupWrapper {
     position: relative;
     top: 20vh;

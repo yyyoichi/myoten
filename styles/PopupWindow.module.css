@@ -8,9 +8,3 @@
     position: relative;
     top:  20vh;
 }
-
-@media screen and (max-width: 768px) {
-    .containerWrapper {
-        top: 40vh;
-    }
-}

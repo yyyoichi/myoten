@@ -9,15 +9,10 @@
     top:  20vh;
     margin: 0 auto;
     padding: 20px 10px;
-    width: 50vw;
-    min-height: 20vh;
-    background-color: ghostwhite;
-    border-radius: 10px;
 }
 
 @media screen and (max-width: 768px) {
     .containerWrapper {
         top: 40vh;
-        width: 80vw;
     }
 }

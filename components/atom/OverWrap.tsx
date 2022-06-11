@@ -13,8 +13,9 @@ export default function OverWrap({ children, backgroundColor }: Props) {
         zIndex: "100",
         height: "110vmax",
         width: "100vw",
-        backgroundColor: backgroundColor || "#a9a9a9cc"
+        backgroundColor: backgroundColor || "#a9a9a9cc",
+        justifyContent: "center",
     }}>
-        {children}
-    </div>
+    { children }
+    </div >
 }

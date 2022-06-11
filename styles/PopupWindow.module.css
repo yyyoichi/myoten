@@ -1,14 +1,12 @@
 .tapScreen {
-    position: "absolute";
-    height: "110vh";
-    width: "100vw";
+    position: fixed;
+    height: 110vh;
+    width: 100vw;
 }
 
 .containerWrapper {
     position: relative;
     top:  20vh;
-    margin: 0 auto;
-    padding: 20px 10px;
 }
 
 @media screen and (max-width: 768px) {

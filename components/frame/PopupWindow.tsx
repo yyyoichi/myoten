@@ -16,9 +16,7 @@ function PopupWindow({ children, onClick, show }: Props) {
             <OverWrap>
                 <div className={styles.tapScreen} onClick={onClick}>
                 </div>
-                <div className={styles.containerWrapper}>
-                    {children}
-                </div>
+                {children}
             </OverWrap>
         </FadeIn>
     )

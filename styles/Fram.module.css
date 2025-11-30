@@ -52,6 +52,20 @@
     letter-spacing: 2px;
 }
 
+.footerNewsBox {
+    width: 100%;
+    max-width: 600px;
+    padding: 15px 20px;
+    box-sizing: border-box;
+}
+
+.footerNewsTitle {
+    text-align: center;
+    padding-bottom: 10px;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
 .footerLinkBox {
     padding: 15px 0;
     text-align: center;

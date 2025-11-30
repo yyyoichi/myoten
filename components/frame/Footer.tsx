@@ -13,6 +13,7 @@ export default function Footer() {
                     src="https://hako-views.yyyoichi.com/announcements/QHIVgpVUtwN5RBCuJQ1K"
                     style={{ width: "100%", height: "150px", border: "none" }}
                     title="お知らせ一覧"
+                    sandbox="allow-scripts allow-same-origin"
                 ></iframe>
             </div>
             <div className={styles.footerLinkBox}>

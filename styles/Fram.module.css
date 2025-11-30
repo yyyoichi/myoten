@@ -74,3 +74,21 @@
 .footerLink {
     font-size: 10px;
 }
+
+.announcementBanner {
+    background-color: #ff6b35;
+    color: white;
+    text-align: center;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.announcementLink {
+    color: white;
+    text-decoration: underline;
+}
+
+.announcementLink:hover {
+    opacity: 0.9;
+}
